@@ -1,0 +1,16 @@
+# Секреты и локальные файлы
+keystore.properties
+keystore/
+local.properties
+
+# Сборочные артефакты
+.gradle/
+.kotlin/
+build/
+app/build/
+*.apk
+*.aab
+
+# IDE
+.idea/
+*.iml
