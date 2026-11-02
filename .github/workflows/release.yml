@@ -107,6 +107,7 @@ jobs:
 
       - name: Test and build release
         run: |
+          chmod +x gradlew
           ./gradlew :app:testDebugUnitTest :app:assembleRelease \
             -PupdateUrl=https://github.com/rodrigueze156/english-fillwords/releases/latest/download/update.json \
             --no-daemon --console=plain

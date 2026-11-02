@@ -1008,9 +1008,84 @@ object Themes {
             Word("RESPECT", "уважение"),
             Word("DREAM", "мечта"),
             Word("FREEDOM", "свобода"),
-            Word("ADVENTURE", "приключение"),
+            Word("BROOKLI", "дарья"),
             Word("INSPIRATION", "вдохновение"),
             Word("PASSION", "страсть")
+        )
+    )
+    
+    val brawlers = Theme(
+        id = "brawlers",
+        nameRu = "Бравлеры",
+        nameEn = "Brawlers",
+        emoji = "🥊",
+        words = listOf(
+            Word("SHELLEY", "Шелли"),
+            Word("NITA", "Нита"),
+            Word("COLT", "Кольт"),
+            Word("BULL", "Булл"),
+            Word("JESSIE", "Джесси"),
+            Word("BROCK", "Брок"),
+            Word("DYNAMIKE", "Динамайк"),
+            Word("TICK", "Тик"),
+            Word("ELPRIMO", "Эль Примо"),
+            Word("BARLEY", "Барли"),
+            Word("PAM", "Пэм"),
+            Word("TARA", "Тара"),
+            Word("DARRYL", "Деррил"),
+            Word("PIPER", "Пайпер"),
+            Word("FRANK", "Фрэнк"),
+            Word("GENE", "Джин")
+        )
+    )
+    
+    val brawlers2 = Theme(
+        id = "brawlers2",
+        nameRu = "Бравлеры 2",
+        nameEn = "Brawlers 2",
+        emoji = "🥋",
+        words = listOf(
+            Word("MAX", "Макс"),
+            Word("MRP", "Мистер П"),
+            Word("JACKY", "Джеки"),
+            Word("BEA", "Би"),
+            Word("SANDY", "Сэнди"),
+            Word("EMZ", "Эмз"),
+            Word("LOU", "Лу"),
+            Word("COLETTE", "Колетт"),
+            Word("BYRON", "Байрон"),
+            Word("EDGAR", "Эдгар"),
+            Word("GRIFF", "Грифф"),
+            Word("JANET", "Джанет"),
+            Word("BONNIE", "Бонни"),
+            Word("OTIS", "Отис"),
+            Word("STU", "Сту"),
+            Word("GALE", "Гейл")
+        )
+    )
+
+    val brawlers3 = Theme(
+        id = "brawlers3",
+        nameRu = "Бравлеры 3",
+        nameEn = "Brawlers 3",
+        emoji = "🏆",
+        words = listOf(
+            Word("COLETTE", "Колетт"),
+            Word("BYRON", "Байрон"),
+            Word("EDGAR", "Эдгар"),
+            Word("GRIFF", "Грифф"),
+            Word("JANET", "Джанет"),
+            Word("BONNIE", "Бонни"),
+            Word("OTIS", "Отис"),
+            Word("STU", "Стю"),
+            Word("BELLE", "Белль"),
+            Word("SQUEAK", "Сквик"),
+            Word("ASH", "Эш"),
+            Word("LUNA", "Луна"),
+            Word("RICOCHET", "Рикошет"),
+            Word("GROM", "Гром"),
+            Word("FANG", "Фенг"),
+            Word("EVE", "Ева")
         )
     )
 
@@ -1046,6 +1121,6 @@ object Themes {
         weather, clothes, body, house, school, sport, transport, insects, desserts, professions,
         fruits, vegetables, colors, shapes, kitchen, tools, birds, fish, toys, feelings,
         drinks, bakery, furniture, bathroom, garden, farm, mountains, city, medicine, technology,
-        brawlstars, myself
+        brawlstars, myself, brawlers, brawlers2, brawlers3
     )
 }

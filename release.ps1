@@ -222,20 +222,40 @@ try {
     } catch {
         Write-Warning "Не удалось закоммитить версию: $($_.Exception.Message)"
     }
+    $restoreOnFailure = $false
+
+    $hasRemote = $false
+    & git remote get-url origin *> $null
+    if ($LASTEXITCODE -eq 0) { $hasRemote = $true }
+
+    if ($hasRemote) {
+        Write-Host "Отправка коммита и тега v$Version в origin..." -ForegroundColor Cyan
+        & git push origin HEAD:main
+        if ($LASTEXITCODE -ne 0) { throw "git push завершился с кодом $LASTEXITCODE" }
+        & git tag -f "v$Version" *> $null
+        & git push origin "v$Version"
+        if ($LASTEXITCODE -ne 0) { throw "git push тега завершился с кодом $LASTEXITCODE" }
+    } else {
+        Write-Warning "Remote origin не настроен: тег будет создан только на GitHub."
+    }
 
     $notesFile = Join-Path $env:TEMP "fillwords-release-$Version.txt"
     Write-Utf8NoBom $notesFile ($Notes.Trim() + "`n")
 
     Write-Host "`nПубликация v$Version..." -ForegroundColor Cyan
-    & $gh release create "v$Version" --repo $repoSlug `
-        --title "English Fillwords $Version" `
-        --notes-file $notesFile `
-        "update.json" "EnglishFillwords.apk"
+    $releaseArgs = @(
+        "release", "create", "v$Version",
+        "--repo", $repoSlug,
+        "--title", "English Fillwords $Version",
+        "--notes-file", $notesFile
+    )
+    if ($hasRemote) { $releaseArgs += "--verify-tag" }
+
+    & $gh @releaseArgs "update.json" "EnglishFillwords.apk"
     if ($LASTEXITCODE -ne 0) { throw "gh release create завершился с кодом $LASTEXITCODE" }
 
     # --- проверка публикации -------------------------------------------
 
-    $restoreOnFailure = $false
     $ok = $false
     for ($i = 1; $i -le 10; $i++) {
         try {

@@ -191,7 +191,7 @@ private fun GridCell(
             .size(cellSize)
             .semantics {
                 this.selected = selected
-                stateDescription = if (selected) "selected" else "unselected"
+                stateDescription = if (selected) "выбрано" else "не выбрано"
             }
             .clip(shape)
             .background(background)
