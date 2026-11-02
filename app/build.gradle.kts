@@ -24,6 +24,8 @@ android {
         versionCode = 10
         versionName = "1.6"
 
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
         val updateUrl = (project.findProperty("updateUrl") as String?)
             ?: "https://example.com/english-fillwords/update.json"
         buildConfigField("String", "UPDATE_URL", "\"$updateUrl\"")
@@ -86,4 +88,10 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-tooling")
 
     testImplementation("junit:junit:4.13.2")
+
+    androidTestImplementation(platform("androidx.compose:compose-bom:2024.12.01"))
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+    androidTestImplementation("androidx.test.ext:junit:1.2.1")
+    androidTestImplementation("androidx.test:runner:1.6.2")
+    debugImplementation("androidx.compose.ui:ui-test-manifest")
 }

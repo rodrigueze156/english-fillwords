@@ -54,11 +54,17 @@ Gradle 8.9 (проект рассчитан именно на неё, JDK 21):
 # тесты + debug
 .\gradlew.bat :app:testDebugUnitTest :app:assembleDebug
 
+# UI-тест подсветки после «Обновить» (нужен запущенный эмулятор)
+.\gradlew.bat :app:connectedDebugAndroidTest
+
 # релиз (URL обновления обязателен)
 .\gradlew.bat :app:assembleRelease -PupdateUrl=https://github.com/rodrigueze156/english-fillwords/releases/latest/download/update.json
 ```
 
 Результат: `app/build/outputs/apk/release/app-release.apk`.
+
+Если PowerShell блокирует `.ps1` («выполнение сценариев отключено»),
+используй `release.cmd` — он запускает скрипт с `-ExecutionPolicy Bypass`.
 
 ## Как добавить уровень
 
@@ -71,6 +77,35 @@ Gradle 8.9 (проект рассчитан именно на неё, JDK 21):
 `Levels.kt` менять не нужно.
 
 ## Релиз
+
+### Быстрый путь: `release.cmd`
+
+```powershell
+# 1. Посмотреть план, ничего не меняя
+.\release.cmd -Version 1.7 -Notes "..." -DryRun
+
+# 2. Собрать и проверить, но НЕ публиковать
+.\release.cmd -Version 1.7 -Notes "..."
+
+# 3. Опубликовать (только с явного разрешения пользователя)
+.\release.cmd -Version 1.7 -Notes "..." -Publish
+```
+
+Скрипт сам:
+
+1. проверяет, что новый `versionCode` больше опубликованного на GitHub;
+2. проверяет, что тег `vX.Y` ещё не занят;
+3. поднимает `versionCode` и `versionName` в `app/build.gradle.kts`;
+4. обновляет `update.json`;
+5. прогоняет тесты и собирает release;
+6. проверяет через `aapt`, что версия внутри APK совпадает;
+7. копирует APK в `EnglishFillwords.apk`;
+8. при `-Publish` коммитит версию, создаёт GitHub Release и проверяет,
+   что `latest/download/update.json` и APK уже доступны.
+
+При ошибке сборки версия и `update.json` откатываются.
+
+### Вручную (fallback)
 
 Порядок:
 
@@ -96,6 +131,39 @@ Gradle 8.9 (проект рассчитан именно на неё, JDK 21):
    ```
 
 Ожидается новый `versionCode` и HTTP 200.
+
+## GitHub Actions
+
+Workflow: `.github/workflows/release.yml`, запуск вручную:
+Actions → Release → Run workflow (версия и заметки).
+
+Перед первым запуском репозиторий должен содержать исходники, а в
+Settings → Secrets and variables → Actions нужно добавить:
+
+| Secret | Значение |
+|---|---|
+| `ANDROID_KEYSTORE_BASE64` | `keystore/release.jks` в base64 |
+| `KEYSTORE_STORE_PASSWORD` | пароль хранилища |
+| `KEYSTORE_KEY_ALIAS` | alias ключа |
+| `KEYSTORE_KEY_PASSWORD` | пароль ключа |
+
+Получить base64:
+
+```powershell
+[Convert]::ToBase64String([IO.File]::ReadAllBytes("keystore\release.jks")) |
+  Set-Clipboard
+```
+
+Загрузить секреты:
+
+```powershell
+gh secret set ANDROID_KEYSTORE_BASE64 --repo rodrigueze156/english-fillwords
+# остальные три — аналогично, по одному
+```
+
+CI сам берёт последний `versionCode` с GitHub, прибавляет 1, собирает
+подписанный APK и публикует релиз. Локальный `release.cmd` — альтернативный
+путь; одновременно оба способа не запускать.
 
 ## Emulator
 

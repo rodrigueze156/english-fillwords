@@ -1,0 +1,153 @@
+name: Release
+
+# Ручной запуск: Actions → Release → Run workflow.
+# Собирает подписанный APK и публикует GitHub Release.
+#
+# Требуемые secrets репозитория:
+#   ANDROID_KEYSTORE_BASE64   — keystore/release.jks в base64
+#   KEYSTORE_STORE_PASSWORD   — пароль хранилища
+#   KEYSTORE_KEY_ALIAS        — alias ключа
+#   KEYSTORE_KEY_PASSWORD     — пароль ключа
+#
+# Как получить base64 (PowerShell):
+#   [Convert]::ToBase64String([IO.File]::ReadAllBytes("keystore\release.jks"))
+# и добавить: gh secret set ANDROID_KEYSTORE_BASE64 --repo rodrigueze156/english-fillwords
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "versionName, например 1.7"
+        required: true
+        type: string
+      notes:
+        description: "Заметки к релизу (русский текст)"
+        required: false
+        default: ""
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Prepare signing
+        env:
+          KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          STORE_PASSWORD: ${{ secrets.KEYSTORE_STORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEYSTORE_KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEYSTORE_KEY_PASSWORD }}
+        run: |
+          if [ -z "$KEYSTORE_BASE64" ]; then
+            echo "::error::Не задан secret ANDROID_KEYSTORE_BASE64"
+            exit 1
+          fi
+          mkdir -p keystore
+          printf '%s' "$KEYSTORE_BASE64" | base64 -d > keystore/release.jks
+          {
+            echo "storeFile=keystore/release.jks"
+            echo "storePassword=$STORE_PASSWORD"
+            echo "keyAlias=$KEY_ALIAS"
+            echo "keyPassword=$KEY_PASSWORD"
+          } > keystore.properties
+
+      - name: Bump version and update manifest
+        id: version
+        env:
+          VERSION: ${{ inputs.version }}
+          NOTES: ${{ inputs.notes }}
+        run: |
+          if ! [[ "$VERSION" =~ ^[0-9]+\.[0-9]+(\.[0-9]+)?$ ]]; then
+            echo "::error::Некорректная версия: $VERSION"
+            exit 1
+          fi
+
+          latest=$(curl -fsSL \
+            "https://github.com/rodrigueze156/english-fillwords/releases/latest/download/update.json" \
+            | jq -r '.versionCode' 2>/dev/null || true)
+          if ! [[ "$latest" =~ ^[0-9]+$ ]]; then
+            latest=$(grep -oP 'versionCode = \K[0-9]+' app/build.gradle.kts)
+          fi
+          code=$((latest + 1))
+
+          sed -i -E "s/versionCode = [0-9]+/versionCode = $code/" app/build.gradle.kts
+          sed -i -E "s/versionName = \"[^\"]+\"/versionName = \"$VERSION\"/" app/build.gradle.kts
+
+          if [ -z "$NOTES" ]; then
+            NOTES="Обновление $VERSION."
+          fi
+          jq -n \
+            --argjson code "$code" \
+            --arg name "$VERSION" \
+            --arg notes "$NOTES" \
+            '{versionCode: $code, versionName: $name,
+              apkUrl: "https://github.com/rodrigueze156/english-fillwords/releases/latest/download/EnglishFillwords.apk",
+              notes: $notes}' > update.json
+
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          echo "Собираем $VERSION ($code)"
+
+      - name: Test and build release
+        run: |
+          ./gradlew :app:testDebugUnitTest :app:assembleRelease \
+            -PupdateUrl=https://github.com/rodrigueze156/english-fillwords/releases/latest/download/update.json \
+            --no-daemon --console=plain
+
+      - name: Prepare assets
+        run: |
+          cp app/build/outputs/apk/release/app-release.apk EnglishFillwords.apk
+          ls -lh EnglishFillwords.apk update.json
+
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ inputs.version }}
+          NOTES: ${{ inputs.notes }}
+        run: |
+          if [ -z "$NOTES" ]; then
+            NOTES="Обновление $VERSION."
+          fi
+          printf '%s\n' "$NOTES" > release-notes.txt
+          gh release create "v$VERSION" \
+            --repo "$GITHUB_REPOSITORY" \
+            --title "English Fillwords $VERSION" \
+            --notes-file release-notes.txt \
+            update.json EnglishFillwords.apk
+
+      - name: Verify published update
+        env:
+          VERSION: ${{ inputs.version }}
+        run: |
+          for i in $(seq 1 10); do
+            json=$(curl -fsSL \
+              "https://github.com/rodrigueze156/english-fillwords/releases/latest/download/update.json" \
+              || true)
+            if echo "$json" | jq -e --arg v "$VERSION" '.versionName == $v' > /dev/null 2>&1; then
+              echo "update.json отдаёт $VERSION"
+              curl -fsSI \
+                "https://github.com/rodrigueze156/english-fillwords/releases/latest/download/EnglishFillwords.apk" \
+                | head -n 1
+              exit 0
+            fi
+            sleep 3
+          done
+          echo "::error::GitHub всё ещё отдаёт старый update.json"
+          exit 1

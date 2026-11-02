@@ -25,6 +25,10 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.semantics.selected
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.stateDescription
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -77,7 +81,8 @@ fun WordGrid(
                             foundColor = foundMap[cell]?.let { wordColor(it.colorIndex) },
                             hinted = cell in hintedCells,
                             selected = cell in selectionSet,
-                            edge = cell == selection.firstOrNull() || cell == selection.lastOrNull()
+                            edge = cell == selection.firstOrNull() || cell == selection.lastOrNull(),
+                            modifier = Modifier.testTag("cell_${row}_$col")
                         )
                     }
                 }
@@ -148,7 +153,8 @@ private fun GridCell(
     foundColor: Color?,
     hinted: Boolean,
     selected: Boolean,
-    edge: Boolean
+    edge: Boolean,
+    modifier: Modifier = Modifier
 ) {
     val shape = RoundedCornerShape(if (cellSize.value > 24f) 7.dp else 5.dp)
     val target = when {
@@ -181,8 +187,12 @@ private fun GridCell(
     }
 
     Box(
-        modifier = Modifier
+        modifier = modifier
             .size(cellSize)
+            .semantics {
+                this.selected = selected
+                stateDescription = if (selected) "selected" else "unselected"
+            }
             .clip(shape)
             .background(background)
             .then(if (border != null) Modifier.border(border, shape) else Modifier),
