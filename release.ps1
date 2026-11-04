@@ -216,11 +216,10 @@ try {
     }
 
     # Коммитим только версию и манифест, чтобы история релизов была в git.
-    try {
-        & git add -- $gradleFile $updateFile 2>$null
-        & git commit -m "Release $Version" *> $null
-    } catch {
-        Write-Warning "Не удалось закоммитить версию: $($_.Exception.Message)"
+    & git add -- $gradleFile $updateFile 2>$null
+    & git commit -m "Release $Version" 2>$null | Out-Null
+    if ($LASTEXITCODE -ne 0) {
+        throw "git commit завершился с кодом $LASTEXITCODE"
     }
     $restoreOnFailure = $false
 
@@ -230,10 +229,10 @@ try {
 
     if ($hasRemote) {
         Write-Host "Отправка коммита и тега v$Version в origin..." -ForegroundColor Cyan
-        & git push origin HEAD:main
+        & git push --quiet origin HEAD:main 2>$null
         if ($LASTEXITCODE -ne 0) { throw "git push завершился с кодом $LASTEXITCODE" }
         & git tag -f "v$Version" 2>$null | Out-Null
-        & git push origin "v$Version"
+        & git push --quiet --force origin "v$Version" 2>$null
         if ($LASTEXITCODE -ne 0) { throw "git push тега завершился с кодом $LASTEXITCODE" }
     } else {
         Write-Warning "Remote origin не настроен: тег будет создан только на GitHub."
