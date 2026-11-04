@@ -119,12 +119,12 @@ if ($DryRun) {
 $gh = $null
 if ($Publish) {
     $gh = Get-Gh
-    & $gh auth status *> $null
+    & $gh api user --jq ".login" 2>$null | Out-Null
     if ($LASTEXITCODE -ne 0) {
         throw "GitHub CLI не авторизован. Выполни: gh auth login"
     }
-    & $gh release view "v$Version" --repo $repoSlug *> $null
-    if ($LASTEXITCODE -eq 0) {
+    $existingTags = (& $gh release list --repo $repoSlug --limit 100 --json tagName | ConvertFrom-Json).tagName
+    if ($existingTags -contains "v$Version") {
         throw "Релиз v$Version уже существует на GitHub."
     }
 }
@@ -225,14 +225,14 @@ try {
     $restoreOnFailure = $false
 
     $hasRemote = $false
-    & git remote get-url origin *> $null
+    & git remote get-url origin 2>$null | Out-Null
     if ($LASTEXITCODE -eq 0) { $hasRemote = $true }
 
     if ($hasRemote) {
         Write-Host "Отправка коммита и тега v$Version в origin..." -ForegroundColor Cyan
         & git push origin HEAD:main
         if ($LASTEXITCODE -ne 0) { throw "git push завершился с кодом $LASTEXITCODE" }
-        & git tag -f "v$Version" *> $null
+        & git tag -f "v$Version" 2>$null | Out-Null
         & git push origin "v$Version"
         if ($LASTEXITCODE -ne 0) { throw "git push тега завершился с кодом $LASTEXITCODE" }
     } else {
