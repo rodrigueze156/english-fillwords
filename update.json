@@ -1,6 +1,6 @@
 {
-    "versionCode":  11,
-    "versionName":  "1.7",
+    "versionCode":  12,
+    "versionName":  "1.8",
     "apkUrl":  "https://github.com/rodrigueze156/english-fillwords/releases/latest/download/EnglishFillwords.apk",
-    "notes":  "Добавлены темы «Бравлеры», «Бравлеры 2» и «Бравлеры 3» — по одному уровню в каждой сложности. Всего в игре 43 темы и 129 уровней. Исправлено отображение эмодзи на старых версиях Android."
+    "notes":  "На лёгком и среднем уровнях слова больше не пересекаются — искать стало проще. На сложном уровне пересечения остались."
 }
