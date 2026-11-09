@@ -38,20 +38,22 @@ object PuzzleGenerator {
         size: Int,
         wordCount: Int,
         directions: List<Direction>,
+        allowCrossings: Boolean,
         random: Random = Random.Default
     ): Puzzle {
         val eligible = theme.words.filter { it.en.length in 3..size }
         check(eligible.isNotEmpty()) { "No words fit a $size x $size grid" }
 
         repeat(300) {
-            val puzzle = attempt(theme, size, wordCount, directions, eligible, random)
+            val puzzle = attempt(theme, size, wordCount, directions, allowCrossings, eligible, random)
             if (puzzle != null && puzzle.words.size == wordCount) return puzzle
         }
 
         // Крайне маловероятный запасной вариант: берём лучшее, что получилось.
         var best: Puzzle? = null
         repeat(60) {
-            val puzzle = attempt(theme, size, wordCount, directions, eligible, random) ?: return@repeat
+            val puzzle = attempt(theme, size, wordCount, directions, allowCrossings, eligible, random)
+                ?: return@repeat
             if (best == null || puzzle.words.size > best!!.words.size) best = puzzle
         }
         return best ?: error("Could not generate puzzle for ${theme.id}")
@@ -62,6 +64,7 @@ object PuzzleGenerator {
         size: Int,
         wordCount: Int,
         directions: List<Direction>,
+        allowCrossings: Boolean,
         eligible: List<Word>,
         random: Random
     ): Puzzle? {
@@ -76,7 +79,8 @@ object PuzzleGenerator {
         for (word in pool) {
             if (placed.size >= wordCount) break
             if (placed.any { it.first.en == word.en }) continue
-            val cells = findPlacement(grid, word.en, size, directions, random) ?: continue
+            val cells = findPlacement(grid, word.en, size, directions, allowCrossings, random)
+                ?: continue
             word.en.forEachIndexed { i, ch -> grid[cells[i].row][cells[i].col] = ch }
             placed += word to cells
         }
@@ -103,13 +107,14 @@ object PuzzleGenerator {
         word: String,
         size: Int,
         directions: List<Direction>,
+        allowCrossings: Boolean,
         random: Random
     ): List<Cell>? {
         val length = word.length
         var best: List<Cell>? = null
         var bestCrossings = -1
 
-        repeat(160) { attempt ->
+        repeat(if (allowCrossings) 160 else 400) { attempt ->
             val direction = directions[random.nextInt(directions.size)]
             val rowMin = max(0, -direction.dr * (length - 1))
             val rowMax = minOf(size - 1, size - 1 - direction.dr * (length - 1))
@@ -135,6 +140,13 @@ object PuzzleGenerator {
                     crossings++
                 }
             }
+
+            if (!allowCrossings) {
+                // Лёгкий и средний: слово должно занять только пустые клетки.
+                if (valid && crossings == 0) return cells
+                return@repeat
+            }
+
             // Полное наложение на уже стоящее слово недопустимо.
             if (!valid || crossings == length) return@repeat
 
@@ -145,6 +157,6 @@ object PuzzleGenerator {
             // Хорошее пересечение найдено — дальше искать не нужно.
             if (crossings >= 2 || (crossings > 0 && attempt >= 50)) return@repeat
         }
-        return best
+        return if (allowCrossings) best else null
     }
 }

@@ -37,12 +37,15 @@ class PuzzleGeneratorTest {
             size = spec.size,
             wordCount = spec.wordCount,
             directions = spec.directions,
+            allowCrossings = spec.difficulty == Difficulty.HARD,
             random = Random(seed)
         )
 
         assertEquals("word count for $label", spec.wordCount, puzzle.words.size)
         assertEquals(spec.size, puzzle.letters.size)
         assertTrue(puzzle.letters.all { it.size == spec.size })
+
+        val occupied = mutableMapOf<Cell, String>()
 
         for (word in puzzle.words) {
             assertEquals(word.word.length, word.cells.size)
@@ -67,6 +70,14 @@ class PuzzleGeneratorTest {
                     word.word[i],
                     puzzle.letters[cell.row][cell.col]
                 )
+                if (spec.difficulty != Difficulty.HARD) {
+                    val previous = occupied.put(cell, word.word)
+                    assertTrue(
+                        "words must not intersect on $label at ${cell.row},${cell.col}: " +
+                            "$previous and ${word.word}",
+                        previous == null
+                    )
+                }
                 if (i > 0) {
                     assertEquals(dr, word.cells[i].row - word.cells[i - 1].row)
                     assertEquals(dc, word.cells[i].col - word.cells[i - 1].col)

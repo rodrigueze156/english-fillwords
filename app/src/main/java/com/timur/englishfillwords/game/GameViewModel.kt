@@ -59,6 +59,7 @@ class GameViewModel : ViewModel() {
             size = spec.size,
             wordCount = spec.wordCount,
             directions = spec.directions,
+            allowCrossings = spec.difficulty == Difficulty.HARD,
             random = Random(seed ?: System.nanoTime())
         )
         game = Game(
