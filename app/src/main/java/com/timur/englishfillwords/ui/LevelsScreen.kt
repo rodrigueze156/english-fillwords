@@ -89,7 +89,11 @@ fun LevelsScreen(
                         style = MaterialTheme.typography.titleLarge
                     )
                     Text(
-                        text = "${progress.completedCount(difficulty)} из ${Levels.PER_DIFFICULTY} тем пройдено",
+                        text = if (progress.admin) {
+                            "Режим администратора · открыты все уровни"
+                        } else {
+                            "${progress.completedCount(difficulty)} из ${Levels.PER_DIFFICULTY} тем пройдено"
+                        },
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
@@ -149,6 +153,7 @@ fun LevelsScreen(
             ) {
                 itemsIndexed(Themes.all) { index, theme ->
                     val unlocked = progress.isUnlocked(difficulty, index)
+                    val enabled = progress.admin || unlocked
                     LevelCard(
                         number = index + 1,
                         themeName = theme.nameRu,
@@ -158,8 +163,9 @@ fun LevelsScreen(
                         wordCount = Levels.spec(difficulty, index).wordCount,
                         stars = progress.stars(difficulty, index),
                         unlocked = unlocked,
+                        enabled = enabled,
                         accent = accent,
-                        onClick = { if (unlocked) onStartLevel(index) }
+                        onClick = { if (enabled) onStartLevel(index) }
                     )
                 }
             }
@@ -177,12 +183,13 @@ private fun LevelCard(
     wordCount: Int,
     stars: Int,
     unlocked: Boolean,
+    enabled: Boolean,
     accent: Color,
     onClick: () -> Unit
 ) {
     Surface(
         onClick = onClick,
-        enabled = unlocked,
+        enabled = enabled,
         modifier = Modifier.height(168.dp),
         shape = RoundedCornerShape(20.dp),
         color = MaterialTheme.colorScheme.surface,
@@ -253,6 +260,14 @@ private fun LevelCard(
 
             if (unlocked) {
                 StarRow(stars = stars, starSize = 15.sp)
+            } else if (enabled) {
+                Text(
+                    text = "Доступ администратора",
+                    style = MaterialTheme.typography.labelSmall,
+                    fontWeight = FontWeight.Bold,
+                    color = accent,
+                    maxLines = 1
+                )
             } else {
                 Text(
                     text = "Пройди предыдущий",

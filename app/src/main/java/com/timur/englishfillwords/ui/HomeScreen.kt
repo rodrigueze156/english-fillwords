@@ -1,7 +1,9 @@
 package com.timur.englishfillwords.ui
 
+import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -35,6 +37,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -50,6 +54,9 @@ import com.timur.englishfillwords.ui.theme.ThemeMode
 import com.timur.englishfillwords.ui.theme.ThemeStore
 
 private val mediumAccent = Color(0xFFB07A2A)
+
+private const val SECRET_TAPS = 7
+private const val SECRET_TAPS_WINDOW_MS = 4_000L
 
 private fun accentFor(difficulty: Difficulty): Color = when (difficulty) {
     Difficulty.EASY -> Color(0xFF4C8C5A)
@@ -75,6 +82,7 @@ fun HomeScreen(
 ) {
     // Подписка на изменения прогресса.
     val revision = progress.revision
+    val context = LocalContext.current
     var showHowTo by remember { mutableStateOf(false) }
     var showReset by remember { mutableStateOf(false) }
     var showUpdate by remember { mutableStateOf(false) }
@@ -107,7 +115,39 @@ fun HomeScreen(
                     )
                 }
                 Spacer(Modifier.width(12.dp))
-                Column {
+                Column(
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(10.dp))
+                        .pointerInput(Unit) {
+                            var taps = 0
+                            var windowStart = 0L
+                            detectTapGestures {
+                                val now = System.currentTimeMillis()
+                                if (now - windowStart > SECRET_TAPS_WINDOW_MS) {
+                                    windowStart = now
+                                    taps = 1
+                                } else {
+                                    taps += 1
+                                }
+                                if (taps >= SECRET_TAPS) {
+                                    taps = 0
+                                    windowStart = 0L
+                                    val enable = !progress.admin
+                                    progress.setAdminMode(enable)
+                                    Toast.makeText(
+                                        context,
+                                        if (enable) {
+                                            "Режим администратора включён"
+                                        } else {
+                                            "Режим администратора выключен"
+                                        },
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+                            }
+                        }
+                        .padding(horizontal = 4.dp, vertical = 2.dp)
+                ) {
                     Text(
                         text = "Word Puzzle by rodrigueze",
                         style = MaterialTheme.typography.labelSmall,
@@ -119,6 +159,14 @@ fun HomeScreen(
                         style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.Bold
                     )
+                    if (progress.admin) {
+                        Text(
+                            text = "ADMIN",
+                            style = MaterialTheme.typography.labelSmall,
+                            fontWeight = FontWeight.Bold,
+                            color = Terracotta
+                        )
+                    }
                 }
 
                 Spacer(Modifier.weight(1f))

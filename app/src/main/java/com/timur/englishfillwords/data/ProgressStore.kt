@@ -38,6 +38,18 @@ class ProgressStore(context: Context) {
     var dailyCompletedCount by mutableIntStateOf(prefs.getInt(KEY_DAILY_TOTAL, 0))
         private set
 
+    /** Режим администратора: открывает все уровни, даже закрытые. */
+    var admin by mutableStateOf(prefs.getBoolean(KEY_ADMIN, false))
+        private set
+
+    /** Включает или выключает режим администратора и сохраняет выбор. */
+    fun setAdminMode(value: Boolean) {
+        if (admin == value) return
+        admin = value
+        prefs.edit().putBoolean(KEY_ADMIN, value).apply()
+        revision++
+    }
+
     init {
         migrateHints()
     }
@@ -146,6 +158,7 @@ class ProgressStore(context: Context) {
         dailyStreak = 0
         dailyLastKey = null
         dailyCompletedCount = 0
+        admin = false
         revision++
     }
 
@@ -169,6 +182,7 @@ class ProgressStore(context: Context) {
         private const val KEY_DAILY_STREAK = "daily_streak"
         private const val KEY_DAILY_LAST = "daily_last"
         private const val KEY_DAILY_TOTAL = "daily_total"
+        private const val KEY_ADMIN = "admin_mode"
         private const val PREFS = "english_fillwords_progress"
     }
 }
