@@ -907,7 +907,7 @@ object Themes {
             Word("MARKET", "рынок"),
             Word("HOTEL", "отель"),
             Word("OFFICE", "офис"),
-            Word("PLAZA", "площадь"),
+            Word("SQUARE", "площадь"),
             Word("AVENUE", "проспект"),
             Word("FOUNTAIN", "фонтан"),
             Word("ALLEY", "переулок")
@@ -1081,11 +1081,161 @@ object Themes {
             Word("BELLE", "Белль"),
             Word("SQUEAK", "Сквик"),
             Word("ASH", "Эш"),
-            Word("LUNA", "Луна"),
-            Word("RICOCHET", "Рикошет"),
+            Word("ANGELO", "Анджело"),
+            Word("RICO", "Рико"),
             Word("GROM", "Гром"),
             Word("FANG", "Фенг"),
             Word("EVE", "Ева")
+        )
+    )
+
+    val localdarya = Theme(
+        id = "localdarya",
+        nameRu = "Локалки с Дашкой",
+        nameEn = "Locals with Darya",
+        emoji = "💞",
+        words = listOf(
+            Word("YAGODA", "ягода (ликер)"),
+            Word("SLUTOV", "Шлюха Д.Г."),
+            Word("FERTO", "лучшая песня"),
+            Word("AKYLAS", "лучший певец"),
+            Word("KUNI", "фанат куни"),
+            Word("AEROSPACE", "аэрокос"),
+            Word("PIROZHOK", "zxc пирог"),
+            Word("GRISHA", "грiша"),
+            Word("NIMESULID", "от чего?"),
+            Word("CHETKI", "от деда"),
+            Word("KASHAPOV", "пидорас"),
+            Word("ADAPTATION", "адапт"),
+            Word("MARTEEN", "семечки"),
+            Word("SAMARA", "город возможностей"),
+            Word("MADKID", "мэдк1д"),
+            Word("CLUBROMANTIC", "клуб романтики")
+        )
+    )
+
+    val minecraft = Theme(
+        id = "minecraft",
+        nameRu = "Майнкрафт",
+        nameEn = "Minecraft",
+        emoji = "⛏️",
+        words = listOf(
+            Word("MINECRAFT", "майнкрафт"),
+            Word("CREEPER", "крипер"),
+            Word("PICKAXE", "кирка"),
+            Word("DIAMOND", "алмаз"),
+            Word("ZOMBIE", "зомби"),
+            Word("SKELETON", "скелет"),
+            Word("VILLAGE", "деревня"),
+            Word("PORTAL", "портал"),
+            Word("TORCH", "факел"),
+            Word("BLOCK", "блок"),
+            Word("SWORD", "меч"),
+            Word("APPLE", "яблоко"),
+            Word("CAVE", "пещера"),
+            Word("CRAFT", "крафт"),
+            Word("SPAWN", "спавн"),
+            Word("BIOME", "биом")
+        )
+    )
+
+    val pirates = Theme(
+        id = "pirates",
+        nameRu = "Пираты",
+        nameEn = "Pirates",
+        emoji = "⚓",
+        words = listOf(
+            Word("PIRATE", "пират"),
+            Word("TREASURE", "сокровище"),
+            Word("COMPASS", "компас"),
+            Word("ISLAND", "остров"),
+            Word("PARROT", "попугай"),
+            Word("CANNON", "пушка"),
+            Word("ANCHOR", "якорь"),
+            Word("SAIL", "парус"),
+            Word("SHIP", "корабль"),
+            Word("GOLD", "золото"),
+            Word("MAP", "карта"),
+            Word("CREW", "команда"),
+            Word("SWORD", "меч"),
+            Word("PLANK", "доска"),
+            Word("CHEST", "сундук"),
+            Word("RUM", "ром")
+        )
+    )
+
+    val dinosaurs = Theme(
+        id = "dinosaurs",
+        nameRu = "Динозавры",
+        nameEn = "Dinosaurs",
+        emoji = "🦖",
+        words = listOf(
+            Word("RAPTOR", "раптор"),
+            Word("FOSSIL", "окаменелость"),
+            Word("JURASSIC", "юрский"),
+            Word("EXTINCT", "вымерший"),
+            Word("CLAW", "коготь"),
+            Word("SCALE", "чешуя"),
+            Word("HORN", "рог"),
+            Word("NEST", "гнездо"),
+            Word("EGG", "яйцо"),
+            Word("TAIL", "хвост"),
+            Word("ROAR", "рёв"),
+            Word("BONE", "кость"),
+            Word("MUSEUM", "музей"),
+            Word("TRACK", "след"),
+            Word("SPINE", "хребет"),
+            Word("GIANT", "гигант")
+        )
+    )
+
+    val magic = Theme(
+        id = "magic",
+        nameRu = "Магия",
+        nameEn = "Magic",
+        emoji = "✨",
+        words = listOf(
+            Word("WIZARD", "волшебник"),
+            Word("WITCH", "ведьма"),
+            Word("SPELL", "заклинание"),
+            Word("MAGIC", "магия"),
+            Word("WAND", "палочка"),
+            Word("DRAGON", "дракон"),
+            Word("FAIRY", "фея"),
+            Word("CASTLE", "замок"),
+            Word("CROWN", "корона"),
+            Word("KNIGHT", "рыцарь"),
+            Word("SWORD", "меч"),
+            Word("SHIELD", "щит"),
+            Word("TOWER", "башня"),
+            Word("POTION", "зелье"),
+            Word("CLOAK", "мантия"),
+            Word("OWL", "сова")
+        )
+    )
+
+    val heroes = Theme(
+        id = "heroes",
+        nameRu = "Супергерои",
+        nameEn = "Superheroes",
+        emoji = "🦸",
+        words = listOf(
+            Word("HERO", "герой"),
+            Word("VILLAIN", "злодей"),
+            Word("MASK", "маска"),
+            Word("CAPE", "плащ"),
+            Word("POWER", "сила"),
+            Word("FLIGHT", "полёт"),
+            Word("LASER", "лазер"),
+            Word("SHIELD", "щит"),
+            Word("ORIGIN", "происхождение"),
+            Word("COMIC", "комикс"),
+            Word("SIDEKICK", "напарник"),
+            Word("RESCUE", "спасение"),
+            Word("JUSTICE", "справедливость"),
+            Word("LEGEND", "легенда"),
+            Word("BATTLE", "битва"),
+            Word("ARMOR", "броня")
         )
     )
 
@@ -1121,6 +1271,7 @@ object Themes {
         weather, clothes, body, house, school, sport, transport, insects, desserts, professions,
         fruits, vegetables, colors, shapes, kitchen, tools, birds, fish, toys, feelings,
         drinks, bakery, furniture, bathroom, garden, farm, mountains, city, medicine, technology,
-        brawlstars, myself, brawlers, brawlers2, brawlers3
+        brawlstars, myself, brawlers, brawlers2, brawlers3, localdarya,
+        minecraft, pirates, dinosaurs, magic, heroes
     )
 }
