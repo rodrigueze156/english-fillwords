@@ -1,6 +1,6 @@
 {
-    "versionCode":  12,
-    "versionName":  "1.8",
+    "versionCode":  13,
+    "versionName":  "1.9",
     "apkUrl":  "https://github.com/rodrigueze156/english-fillwords/releases/latest/download/EnglishFillwords.apk",
-    "notes":  "На лёгком и среднем уровнях слова больше не пересекаются — искать стало проще. На сложном уровне пересечения остались."
+    "notes":  "Добавлены 5 новых тем: «Майнкрафт», «Пираты», «Динозавры», «Магия» и «Супергерои» — по одному уровню в каждой сложности. Всего в игре 49 тем и 147 уровней."
 }
