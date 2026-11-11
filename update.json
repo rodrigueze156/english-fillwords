@@ -1,6 +1,6 @@
 {
-    "versionCode":  14,
-    "versionName":  "1.9.1",
+    "versionCode":  16,
+    "versionName":  "3.0",
     "apkUrl":  "https://github.com/rodrigueze156/english-fillwords/releases/latest/download/EnglishFillwords.apk",
-    "notes":  "bug fix"
+    "notes":  "Добавлены новые темы: Дота, Макдональдс, ТикТок, Новосергиевка, Алкоголь, Города, Дарья и Аэрокос. По одному уровню в каждой сложности. Всего в игре 57 тем и 171 уровень. Исправлены ошибки в словах."
 }
