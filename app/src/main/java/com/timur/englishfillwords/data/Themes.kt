@@ -623,7 +623,7 @@ object Themes {
             Word("EAGLE", "орёл"),
             Word("SPARROW", "воробей"),
             Word("ROBIN", "малиновка"),
-            Word("PIGEON", "голубь"),
+            Word("DOVE", "голубь"),
             Word("OWL", "сова"),
             Word("CROW", "ворона"),
             Word("DUCK", "утка"),
@@ -732,7 +732,7 @@ object Themes {
             Word("WINE", "вино"),
             Word("BEER", "пиво"),
             Word("CIDER", "сидр"),
-            Word("SHAKE", "коктейль"),
+            Word("COCKTAIL", "коктейль"),
             Word("SMOOTHIE", "смузи"),
             Word("NECTAR", "нектар"),
             Word("SYRUP", "сироп")
@@ -926,7 +926,7 @@ object Themes {
             Word("SYRINGE", "шприц"),
             Word("BANDAGE", "бинт"),
             Word("PLASTER", "пластырь"),
-            Word("REMEDY", "лекарство"),
+            Word("CURE", "лекарство"),
             Word("CLINIC", "клиника"),
             Word("PATIENT", "пациент"),
             Word("WARD", "палата"),
@@ -975,7 +975,7 @@ object Themes {
             Word("SKIN", "скин"),
             Word("POWERUP", "усиление"),
             Word("TROPHY", "трофей"),
-            Word("GEM", "драгоценный камень"),
+            Word("GEM", "гем"),
             Word("BATTLE", "битва"),
             Word("ARENA", "арена"),
             Word("CLUB", "клуб"),
@@ -983,7 +983,7 @@ object Themes {
             Word("STARPOINTS", "звёздные очки"),
             Word("SEASON", "сезон"),
             Word("REWARD", "награда"),
-            Word("TOKEN", "жетон"),
+            Word("TICKET", "билет"),
             Word("BOSSFIGHT", "бой с боссом"),
             Word("DYNAMITE", "динамит")
         )
@@ -1239,6 +1239,210 @@ object Themes {
         )
     )
 
+    val dota = Theme(
+        id = "dota",
+        nameRu = "Дота",
+        nameEn = "Dota",
+        emoji = "🛡️",
+        words = listOf(
+            Word("DIMA", "дима"),
+            Word("LANE", "полоса"),
+            Word("CREEP", "крип"),
+            Word("TOWER", "башня"),
+            Word("ROSHAN", "Рошан"),
+            Word("ITEM", "предмет"),
+            Word("ABILITY", "способность"),
+            Word("ULTIMATE", "ультимейт"),
+            Word("GANK", "ганк"),
+            Word("PUSH", "пуш"),
+            Word("FARM", "фарм"),
+            Word("STACK", "стак"),
+            Word("SMOKE", "дымовая шашка"),
+            Word("WARD", "варда"),
+            Word("RUNE", "руна"),
+            Word("TEAMFIGHT", "тимфайт")
+        )
+    )
+
+    val mcdonalds = Theme(
+        id = "mcdonalds",
+        nameRu = "Макдональдс",
+        nameEn = "McDonald's",
+        emoji = "🍔",
+        words = listOf(
+            Word("BURGER", "бургер"),
+            Word("FRIES", "картошка фри"),
+            Word("NUGGETS", "наггетсы"),
+            Word("MILKSHAKE", "молочный коктейль"),
+            Word("SALAD", "салат"),
+            Word("ROLL", "ролл"),
+            Word("SAUCE", "соус"),
+            Word("BREAKFAST", "завтрак"),
+            Word("COFFEE", "кофе"),
+            Word("DESSERT", "десерт"),
+            Word("MENU", "меню"),
+            Word("DRINKS", "напитки"),
+            Word("TOY", "игрушка"),
+            Word("PROMOTION", "акция"),
+            Word("ORDER", "заказ"),
+            Word("RESTAURANT", "ресторан")
+        )
+    )
+
+    val tiktok = Theme(
+        id = "tiktok",
+        nameRu = "ТикТок",
+        nameEn = "TikTok",
+        emoji = "🎵",
+        words = listOf(
+            Word("VIDEO", "видео"),
+            Word("TREND", "тренд"),
+            Word("HASHTAG", "хэштег"),
+            Word("CHALLENGE", "челлендж"),
+            Word("DANCE", "танец"),
+            Word("MUSIC", "музыка"),
+            Word("FILTER", "фильтр"),
+            Word("DUET", "дуэт"),
+            Word("COMMENT", "комментарий"),
+            Word("LIKE", "лайк"),
+            Word("FOLLOWER", "подписчик"),
+            Word("LIVE", "прямой эфир"),
+            Word("STORY", "история"),
+            Word("VIRAL", "вирусный"),
+            Word("CONTENT", "контент"),
+            Word("CREATOR", "создатель")
+        )
+    )
+
+    val novosergievka = Theme(
+        id = "novosergievka",
+        nameRu = "Новосергиевка",
+        nameEn = "Novosergievka",
+        emoji = "🏡",
+        words = listOf(
+            Word("LOG", "бревно"),
+            Word("FIVEOCHKA", "пятерочка"),
+            Word("MALISHOK", "малышок"),
+            Word("BATR", "бутримка"),
+            Word("SCENE", "сцена"),
+            Word("HATAVANI", "хата вани"),
+            Word("CRAFT", "крафт"),
+            Word("TOPOLYA", "тополя"),
+            Word("VILLAGE", "село"),
+            Word("KREMANKA", "креманка"),
+            Word("SALUT", "салют"),
+            Word("SOLOMKO", "соломко"),
+            Word("LEBYAZHKA", "лебяжка"),
+            Word("KOROVKA", "коровка"),
+            Word("GTO", "гто"),
+            Word("NOVATOR", "новатор"),
+            Word("STADIUM", "стадион")
+        )
+    )
+
+    val alcohol = Theme(
+        id = "alcohol",
+        nameRu = "Алкоголь",
+        nameEn = "Alcohol",
+        emoji = "🍷",
+        words = listOf(
+            Word("WINE", "вино"),
+            Word("BEER", "пиво"),
+            Word("VODKA", "водка"),
+            Word("WHISKEY", "виски"),
+            Word("RUM", "ром"),
+            Word("GIN", "джин"),
+            Word("TEQUILA", "текила"),
+            Word("COCKTAIL", "коктейль"),
+            Word("BRANDY", "бренди"),
+            Word("CHAMPAGNE", "шампанское"),
+            Word("LIQUEUR", "ликёр"),
+            Word("APERITIF", "аперитив"),
+            Word("DIGESTIF", "дижестив"),
+            Word("FORTIFIED", "креплёное"),
+            Word("MALT", "солод"),
+            Word("YAGODA", "ягода")
+        )
+    )
+
+    val cities = Theme(
+        id = "cities",
+        nameRu = "Города",
+        nameEn = "Cities",
+        emoji = "🏙️",
+        words = listOf(
+            Word("MOSCOW", "Москва"),
+            Word("SAMARA", "Самара"),
+            Word("ORENBURG", "Оренбург"),
+            Word("VOLGOGRAD", "Волгоград"),
+            Word("ORSK", "Орск"),
+            Word("MAGADAN", "Магадан"),
+            Word("MAIKOP", "Майкоп"),
+            Word("BUZULUK", "Бузлук"),
+            Word("NOVOTROICK", "Новотроицк"),
+            Word("KAZAN", "Казань"),
+            Word("TOLYATTI", "Тольятти"),
+            Word("ZHIGULEVSK", "Жигулевск"),
+            Word("SOLOMKINSK", "Соломкинск"),
+            Word("NOVGOROD", "Новгород"),
+            Word("KELN", "Кёльн"),
+            Word("EKB", "Екатеринбург"),
+            Word("TYUMEN", "Тюмень"),
+            Word("SARATOV", "Саратов")
+        )
+    )
+
+    val darya = Theme(
+        id = "darya",
+        nameRu = "Дарья",
+        nameEn = "Darya",
+        emoji = "💖",
+        words = listOf(
+            Word("BELOVED", "любимая"),
+            Word("DARLING", "дорогая"),
+            Word("SWEETHEART", "милая"),
+            Word("PRINCESS", "принцесса"),
+            Word("QUEEN", "королева"),
+            Word("SUNSHINE", "солнышко"),
+            Word("ANGEL", "ангел"),
+            Word("TREASURE", "сокровище"),
+            Word("LOVE", "любовь"),
+            Word("DIAMOND", "бриллиант"),
+            Word("GOLD", "золото"),
+            Word("PEARL", "жемчужина"),
+            Word("THEBEST", "самая лучшая"),
+            Word("MARRIED", "замужем"),
+            Word("HAPPINESS", "счастье"),
+            Word("FOREVER", "навсегда")
+        )
+    )
+
+    val aerospace = Theme(
+        id = "aerospace",
+        nameRu = "Аэрокос",
+        nameEn = "Aerospace",
+        emoji = "🚀",
+        words = listOf(
+            Word("SLUTOV", "шлюха д.г."),
+            Word("SAMSONOVA", "самсонова л.с."),
+            Word("KURAPOVA", "курапова е.с."),
+            Word("SHUKMAN", "шукман в.э."),
+            Word("SILANTIEVA", "силантьева д.б."),
+            Word("AMIRZANOVA", "амирзанова а.р."),
+            Word("DOLGOZVYAGO", "долгозвяго а.а."),
+            Word("NEKRUZ", "некруз"),
+            Word("GAIDEL", "гайдель а.в."),
+            Word("YABLOKOVA", "яблокова л.в."),
+            Word("ZHURAVLEV", "журавлев"),
+            Word("PANOV", "панов"),
+            Word("RUDMAN", "рудман р.м."),
+            Word("MINETOV", "минетов а.а."),
+            Word("ZAKHAROV", "захаров н."),
+            Word("KASHAPOV", "кашапов а.и."),
+            Word("FEDULOV", "федулов м.")
+        )
+    )
+
     /** Отдельный праздничный уровень, не входит в кампании. */
     val halloween = Theme(
         id = "halloween",
@@ -1272,6 +1476,7 @@ object Themes {
         fruits, vegetables, colors, shapes, kitchen, tools, birds, fish, toys, feelings,
         drinks, bakery, furniture, bathroom, garden, farm, mountains, city, medicine, technology,
         brawlstars, myself, brawlers, brawlers2, brawlers3, localdarya,
-        minecraft, pirates, dinosaurs, magic, heroes
+        minecraft, pirates, dinosaurs, magic, heroes, dota, mcdonalds, tiktok, novosergievka,
+        alcohol, cities, darya, aerospace
     )
 }
