@@ -1443,6 +1443,756 @@ object Themes {
         )
     )
 
+    val seasons = Theme(
+        id = "seasons",
+        nameRu = "Времена года",
+        nameEn = "Seasons",
+        emoji = "🌦️",
+        words = listOf(
+            Word("SPRING", "весна"),
+            Word("SUMMER", "лето"),
+            Word("AUTUMN", "осень"),
+            Word("WINTER", "зима"),
+            Word("SNOW", "снег"),
+            Word("RAIN", "дождь"),
+            Word("SUN", "солнце"),
+            Word("LEAF", "лист"),
+            Word("WARM", "тепло"),
+            Word("COLD", "холод"),
+            Word("MARCH", "март"),
+            Word("JUNE", "июнь"),
+            Word("JULY", "июль"),
+            Word("AUGUST", "август"),
+            Word("DECEMBER", "декабрь"),
+            Word("FLOWER", "цветок")
+        )
+    )
+
+    val holidays = Theme(
+        id = "holidays",
+        nameRu = "Праздники",
+        nameEn = "Holidays",
+        emoji = "🎉",
+        words = listOf(
+            Word("HOLIDAY", "праздник"),
+            Word("PARTY", "вечеринка"),
+            Word("GIFT", "подарок"),
+            Word("CAKE", "торт"),
+            Word("BALLOON", "шарик"),
+            Word("CANDLE", "свеча"),
+            Word("GUEST", "гость"),
+            Word("PRESENT", "презент"),
+            Word("CONFETTI", "конфетти"),
+            Word("FIREWORK", "фейерверк"),
+            Word("PARADE", "парад"),
+            Word("GREETING", "поздравление"),
+            Word("FESTIVAL", "фестиваль"),
+            Word("CLOWN", "клоун"),
+            Word("MUSIC", "музыка"),
+            Word("DANCE", "танец")
+        )
+    )
+
+    val circus = Theme(
+        id = "circus",
+        nameRu = "Цирк",
+        nameEn = "Circus",
+        emoji = "🎪",
+        words = listOf(
+            Word("CIRCUS", "цирк"),
+            Word("CLOWN", "клоун"),
+            Word("TENT", "шатёр"),
+            Word("ACROBAT", "акробат"),
+            Word("JUGGLER", "жонглёр"),
+            Word("MAGICIAN", "фокусник"),
+            Word("LION", "лев"),
+            Word("TIGER", "тигр"),
+            Word("ELEPHANT", "слон"),
+            Word("TRAPEZE", "трапеция"),
+            Word("RING", "арена"),
+            Word("POPCORN", "попкорн"),
+            Word("TICKET", "билет"),
+            Word("PARADE", "парад"),
+            Word("DRUM", "барабан"),
+            Word("ROPE", "канат")
+        )
+    )
+
+    val zoo = Theme(
+        id = "zoo",
+        nameRu = "Зоопарк",
+        nameEn = "Zoo",
+        emoji = "🦁",
+        words = listOf(
+            Word("ZOO", "зоопарк"),
+            Word("LION", "лев"),
+            Word("TIGER", "тигр"),
+            Word("MONKEY", "обезьяна"),
+            Word("GIRAFFE", "жираф"),
+            Word("ZEBRA", "зебра"),
+            Word("PANDA", "панда"),
+            Word("KOALA", "коала"),
+            Word("CAMEL", "верблюд"),
+            Word("HIPPO", "бегемот"),
+            Word("RHINO", "носорог"),
+            Word("SNAKE", "змея"),
+            Word("PENGUIN", "пингвин"),
+            Word("KANGAROO", "кенгуру"),
+            Word("CROCODILE", "крокодил"),
+            Word("OSTRICH", "страус")
+        )
+    )
+
+    val egypt = Theme(
+        id = "egypt",
+        nameRu = "Древний Египет",
+        nameEn = "Ancient Egypt",
+        emoji = "🐪",
+        words = listOf(
+            Word("PYRAMID", "пирамида"),
+            Word("PHARAOH", "фараон"),
+            Word("SPHINX", "сфинкс"),
+            Word("MUMMY", "мумия"),
+            Word("CAMEL", "верблюд"),
+            Word("NILE", "Нил"),
+            Word("DESERT", "пустыня"),
+            Word("SCARAB", "скарабей"),
+            Word("PAPYRUS", "папирус"),
+            Word("TEMPLE", "храм"),
+            Word("TOMB", "гробница"),
+            Word("SAND", "песок"),
+            Word("GOLD", "золото"),
+            Word("ANUBIS", "Анубис"),
+            Word("HIEROGLYPH", "иероглиф"),
+            Word("OBELISK", "обелиск")
+        )
+    )
+
+    val rome = Theme(
+        id = "rome",
+        nameRu = "Древний Рим",
+        nameEn = "Ancient Rome",
+        emoji = "🏛️",
+        words = listOf(
+            Word("ROME", "Рим"),
+            Word("ROMAN", "римлянин"),
+            Word("EMPEROR", "император"),
+            Word("CAESAR", "Цезарь"),
+            Word("LEGION", "легион"),
+            Word("GLADIATOR", "гладиатор"),
+            Word("ARENA", "арена"),
+            Word("COLOSSEUM", "Колизей"),
+            Word("TOGA", "тога"),
+            Word("SENATE", "сенат"),
+            Word("TEMPLE", "храм"),
+            Word("AQUEDUCT", "акведук"),
+            Word("MOSAIC", "мозаика"),
+            Word("LATIN", "латынь"),
+            Word("CHARIOT", "колесница"),
+            Word("LAUREL", "лавр")
+        )
+    )
+
+    val vikings = Theme(
+        id = "vikings",
+        nameRu = "Викинги",
+        nameEn = "Vikings",
+        emoji = "⚔️",
+        words = listOf(
+            Word("VIKING", "викинг"),
+            Word("LONGSHIP", "драккар"),
+            Word("WARRIOR", "воин"),
+            Word("SHIELD", "щит"),
+            Word("AXE", "топор"),
+            Word("HELMET", "шлем"),
+            Word("RUNE", "руна"),
+            Word("NORSE", "скандинав"),
+            Word("RAID", "набег"),
+            Word("FJORD", "фьорд"),
+            Word("SAGA", "сага"),
+            Word("THOR", "Тор"),
+            Word("ODIN", "Один"),
+            Word("VALHALLA", "Вальхалла"),
+            Word("DRAGON", "дракон"),
+            Word("SAIL", "парус")
+        )
+    )
+
+    val samurai = Theme(
+        id = "samurai",
+        nameRu = "Самураи",
+        nameEn = "Samurai",
+        emoji = "🏯",
+        words = listOf(
+            Word("SAMURAI", "самурай"),
+            Word("KATANA", "катана"),
+            Word("SWORD", "меч"),
+            Word("ARMOR", "доспехи"),
+            Word("HELMET", "шлем"),
+            Word("SHOGUN", "сёгун"),
+            Word("SENSEI", "учитель"),
+            Word("DOJO", "додзё"),
+            Word("HONOR", "честь"),
+            Word("BOW", "лук"),
+            Word("ARROW", "стрела"),
+            Word("CASTLE", "замок"),
+            Word("EMPEROR", "император"),
+            Word("JAPAN", "Япония"),
+            Word("CHERRY", "сакура"),
+            Word("TEA", "чай")
+        )
+    )
+
+    val ninja = Theme(
+        id = "ninja",
+        nameRu = "Ниндзя",
+        nameEn = "Ninja",
+        emoji = "🥷",
+        words = listOf(
+            Word("NINJA", "ниндзя"),
+            Word("SHURIKEN", "сюрикен"),
+            Word("KATANA", "катана"),
+            Word("STEALTH", "скрытность"),
+            Word("SHADOW", "тень"),
+            Word("SMOKE", "дым"),
+            Word("SILENT", "бесшумный"),
+            Word("CLIMB", "лазать"),
+            Word("ROOF", "крыша"),
+            Word("MASK", "маска"),
+            Word("DARK", "тьма"),
+            Word("SWIFT", "быстрый"),
+            Word("DAGGER", "кинжал"),
+            Word("SCROLL", "свиток"),
+            Word("DISGUISE", "маскировка"),
+            Word("ESCAPE", "побег")
+        )
+    )
+
+    val cowboys = Theme(
+        id = "cowboys",
+        nameRu = "Ковбои",
+        nameEn = "Cowboys",
+        emoji = "🤠",
+        words = listOf(
+            Word("COWBOY", "ковбой"),
+            Word("HORSE", "лошадь"),
+            Word("SADDLE", "седло"),
+            Word("LASSO", "лассо"),
+            Word("RANCH", "ранчо"),
+            Word("DESERT", "пустыня"),
+            Word("CACTUS", "кактус"),
+            Word("BOOTS", "сапоги"),
+            Word("HAT", "шляпа"),
+            Word("SPURS", "шпоры"),
+            Word("TRAIL", "тропа"),
+            Word("BISON", "бизон"),
+            Word("FIRE", "костёр"),
+            Word("DUST", "пыль"),
+            Word("SALOON", "салун"),
+            Word("GUITAR", "гитара")
+        )
+    )
+
+    val detectives = Theme(
+        id = "detectives",
+        nameRu = "Детективы",
+        nameEn = "Detectives",
+        emoji = "🕵️",
+        words = listOf(
+            Word("DETECTIVE", "детектив"),
+            Word("CLUE", "улика"),
+            Word("CRIME", "преступление"),
+            Word("SUSPECT", "подозреваемый"),
+            Word("WITNESS", "свидетель"),
+            Word("CASE", "дело"),
+            Word("EVIDENCE", "доказательство"),
+            Word("ALIBI", "алиби"),
+            Word("MURDER", "убийство"),
+            Word("MYSTERY", "тайна"),
+            Word("POLICE", "полиция"),
+            Word("AGENT", "агент"),
+            Word("SECRET", "секрет"),
+            Word("SHADOW", "тень"),
+            Word("TRAIL", "след"),
+            Word("LENS", "линза")
+        )
+    )
+
+    val spies = Theme(
+        id = "spies",
+        nameRu = "Шпионы",
+        nameEn = "Spies",
+        emoji = "🕶️",
+        words = listOf(
+            Word("SPY", "шпион"),
+            Word("AGENT", "агент"),
+            Word("SECRET", "секрет"),
+            Word("CODE", "код"),
+            Word("CIPHER", "шифр"),
+            Word("GADGET", "гаджет"),
+            Word("CAMERA", "камера"),
+            Word("LASER", "лазер"),
+            Word("MISSION", "миссия"),
+            Word("ENEMY", "враг"),
+            Word("DISGUISE", "маскировка"),
+            Word("SILENT", "тихий"),
+            Word("TARGET", "цель"),
+            Word("ESCAPE", "побег"),
+            Word("BRIEFCASE", "портфель"),
+            Word("RADIO", "рация")
+        )
+    )
+
+    val firefighters = Theme(
+        id = "firefighters",
+        nameRu = "Пожарные",
+        nameEn = "Firefighters",
+        emoji = "🚒",
+        words = listOf(
+            Word("FIRE", "огонь"),
+            Word("TRUCK", "машина"),
+            Word("HOSE", "рукав"),
+            Word("LADDER", "лестница"),
+            Word("HELMET", "каска"),
+            Word("SMOKE", "дым"),
+            Word("FLAME", "пламя"),
+            Word("RESCUE", "спасение"),
+            Word("BRAVE", "смелый"),
+            Word("ALARM", "тревога"),
+            Word("STATION", "часть"),
+            Word("ENGINE", "насос"),
+            Word("WATER", "вода"),
+            Word("AXE", "топор"),
+            Word("MASK", "маска"),
+            Word("TEAM", "команда")
+        )
+    )
+
+    val police = Theme(
+        id = "police",
+        nameRu = "Полиция",
+        nameEn = "Police",
+        emoji = "🚓",
+        words = listOf(
+            Word("POLICE", "полиция"),
+            Word("OFFICER", "офицер"),
+            Word("BADGE", "значок"),
+            Word("PATROL", "патруль"),
+            Word("CRIME", "преступление"),
+            Word("LAW", "закон"),
+            Word("JUSTICE", "правосудие"),
+            Word("ARREST", "арест"),
+            Word("CHASE", "погоня"),
+            Word("SIREN", "сирена"),
+            Word("UNIFORM", "форма"),
+            Word("SAFE", "безопасно"),
+            Word("GUARD", "охрана"),
+            Word("CASE", "дело"),
+            Word("CLUE", "улика"),
+            Word("COURT", "суд")
+        )
+    )
+
+    val construction = Theme(
+        id = "construction",
+        nameRu = "Стройка",
+        nameEn = "Construction",
+        emoji = "🏗️",
+        words = listOf(
+            Word("BUILD", "строить"),
+            Word("CRANE", "кран"),
+            Word("BRICK", "кирпич"),
+            Word("CEMENT", "цемент"),
+            Word("STEEL", "сталь"),
+            Word("WORKER", "рабочий"),
+            Word("HELMET", "каска"),
+            Word("TOOL", "инструмент"),
+            Word("DRILL", "дрель"),
+            Word("NAIL", "гвоздь"),
+            Word("HAMMER", "молоток"),
+            Word("TRUCK", "грузовик"),
+            Word("PLAN", "план"),
+            Word("SITE", "площадка"),
+            Word("TOWER", "башня"),
+            Word("FENCE", "забор")
+        )
+    )
+
+    val supermarket = Theme(
+        id = "supermarket",
+        nameRu = "Супермаркет",
+        nameEn = "Supermarket",
+        emoji = "🛒",
+        words = listOf(
+            Word("SHOP", "магазин"),
+            Word("CART", "тележка"),
+            Word("BASKET", "корзина"),
+            Word("SHELF", "полка"),
+            Word("PRICE", "цена"),
+            Word("CASHIER", "кассир"),
+            Word("RECEIPT", "чек"),
+            Word("QUEUE", "очередь"),
+            Word("PRODUCT", "продукт"),
+            Word("DISCOUNT", "скидка"),
+            Word("AISLE", "проход"),
+            Word("TILL", "касса"),
+            Word("BAG", "пакет"),
+            Word("BRAND", "бренд"),
+            Word("STOCK", "запас"),
+            Word("CUSTOMER", "покупатель")
+        )
+    )
+
+    val cafe = Theme(
+        id = "cafe",
+        nameRu = "Кафе",
+        nameEn = "Cafe",
+        emoji = "☕",
+        words = listOf(
+            Word("CAFE", "кафе"),
+            Word("COFFEE", "кофе"),
+            Word("TEA", "чай"),
+            Word("LATTE", "латте"),
+            Word("CAPPUCCINO", "капучино"),
+            Word("MUFFIN", "маффин"),
+            Word("CROISSANT", "круассан"),
+            Word("WAITER", "официант"),
+            Word("MENU", "меню"),
+            Word("TABLE", "столик"),
+            Word("CUP", "чашка"),
+            Word("SAUCER", "блюдце"),
+            Word("SUGAR", "сахар"),
+            Word("DESSERT", "десерт"),
+            Word("BILL", "счёт"),
+            Word("TIP", "чаевые")
+        )
+    )
+
+    val birthday = Theme(
+        id = "birthday",
+        nameRu = "День рождения",
+        nameEn = "Birthday",
+        emoji = "🎂",
+        words = listOf(
+            Word("BIRTHDAY", "день рождения"),
+            Word("PARTY", "вечеринка"),
+            Word("CAKE", "торт"),
+            Word("CANDLE", "свеча"),
+            Word("GIFT", "подарок"),
+            Word("BALLOON", "шарик"),
+            Word("GUEST", "гость"),
+            Word("WISH", "желание"),
+            Word("CARD", "открытка"),
+            Word("PRESENT", "подарок"),
+            Word("MUSIC", "музыка"),
+            Word("GAMES", "игры"),
+            Word("CANDY", "конфета"),
+            Word("CLOWN", "клоун"),
+            Word("INVITATION", "приглашение"),
+            Word("SURPRISE", "сюрприз")
+        )
+    )
+
+    val wedding = Theme(
+        id = "wedding",
+        nameRu = "Свадьба",
+        nameEn = "Wedding",
+        emoji = "💍",
+        words = listOf(
+            Word("WEDDING", "свадьба"),
+            Word("BRIDE", "невеста"),
+            Word("GROOM", "жених"),
+            Word("RING", "кольцо"),
+            Word("DRESS", "платье"),
+            Word("FLOWERS", "цветы"),
+            Word("CAKE", "торт"),
+            Word("GUEST", "гость"),
+            Word("VOWS", "клятвы"),
+            Word("MUSIC", "музыка"),
+            Word("DANCE", "танец"),
+            Word("PHOTO", "фото"),
+            Word("CHURCH", "церковь"),
+            Word("PARTY", "вечеринка"),
+            Word("LOVE", "любовь"),
+            Word("KISS", "поцелуй")
+        )
+    )
+
+    val christmas = Theme(
+        id = "christmas",
+        nameRu = "Рождество",
+        nameEn = "Christmas",
+        emoji = "🎄",
+        words = listOf(
+            Word("CHRISTMAS", "Рождество"),
+            Word("SANTA", "Санта"),
+            Word("ELF", "эльф"),
+            Word("REINDEER", "олень"),
+            Word("SLEIGH", "сани"),
+            Word("SNOW", "снег"),
+            Word("GIFT", "подарок"),
+            Word("TREE", "ёлка"),
+            Word("STAR", "звезда"),
+            Word("BELL", "колокольчик"),
+            Word("CANDLE", "свеча"),
+            Word("COOKIE", "печенье"),
+            Word("STOCKING", "носок"),
+            Word("SNOWMAN", "снеговик"),
+            Word("CAROL", "гимн"),
+            Word("MISTLETOE", "омела")
+        )
+    )
+
+    val planets = Theme(
+        id = "planets",
+        nameRu = "Планеты",
+        nameEn = "Planets",
+        emoji = "🌍",
+        words = listOf(
+            Word("PLANET", "планета"),
+            Word("MERCURY", "Меркурий"),
+            Word("VENUS", "Венера"),
+            Word("EARTH", "Земля"),
+            Word("MARS", "Марс"),
+            Word("JUPITER", "Юпитер"),
+            Word("SATURN", "Сатурн"),
+            Word("URANUS", "Уран"),
+            Word("NEPTUNE", "Нептун"),
+            Word("MOON", "Луна"),
+            Word("SUN", "Солнце"),
+            Word("STAR", "звезда"),
+            Word("ORBIT", "орбита"),
+            Word("COMET", "комета"),
+            Word("ROCKET", "ракета"),
+            Word("GALAXY", "галактика")
+        )
+    )
+
+    val robots = Theme(
+        id = "robots",
+        nameRu = "Роботы",
+        nameEn = "Robots",
+        emoji = "🤖",
+        words = listOf(
+            Word("ROBOT", "робот"),
+            Word("ANDROID", "андроид"),
+            Word("CIRCUIT", "схема"),
+            Word("SENSOR", "датчик"),
+            Word("MOTOR", "мотор"),
+            Word("BATTERY", "батарея"),
+            Word("METAL", "металл"),
+            Word("WIRE", "провод"),
+            Word("GEAR", "шестерня"),
+            Word("CODE", "код"),
+            Word("PROGRAM", "программа"),
+            Word("MACHINE", "машина"),
+            Word("LASER", "лазер"),
+            Word("DRONE", "дрон"),
+            Word("CHIP", "чип"),
+            Word("LOGIC", "логика")
+        )
+    )
+
+    val internet = Theme(
+        id = "internet",
+        nameRu = "Интернет",
+        nameEn = "Internet",
+        emoji = "🌐",
+        words = listOf(
+            Word("INTERNET", "интернет"),
+            Word("WEBSITE", "сайт"),
+            Word("BROWSER", "браузер"),
+            Word("EMAIL", "почта"),
+            Word("ONLINE", "онлайн"),
+            Word("LINK", "ссылка"),
+            Word("CLICK", "клик"),
+            Word("LOGIN", "вход"),
+            Word("PASSWORD", "пароль"),
+            Word("SEARCH", "поиск"),
+            Word("SERVER", "сервер"),
+            Word("DOMAIN", "домен"),
+            Word("DOWNLOAD", "скачать"),
+            Word("UPLOAD", "загрузить"),
+            Word("CHAT", "чат"),
+            Word("WIFI", "вайфай")
+        )
+    )
+
+    val books = Theme(
+        id = "books",
+        nameRu = "Книги",
+        nameEn = "Books",
+        emoji = "📚",
+        words = listOf(
+            Word("BOOK", "книга"),
+            Word("PAGE", "страница"),
+            Word("STORY", "история"),
+            Word("NOVEL", "роман"),
+            Word("AUTHOR", "автор"),
+            Word("PLOT", "сюжет"),
+            Word("HERO", "герой"),
+            Word("CHAPTER", "глава"),
+            Word("LIBRARY", "библиотека"),
+            Word("SHELF", "полка"),
+            Word("READ", "читать"),
+            Word("TITLE", "название"),
+            Word("POEM", "стих"),
+            Word("FABLE", "басня"),
+            Word("LEGEND", "легенда"),
+            Word("INK", "чернила")
+        )
+    )
+
+    val theatre = Theme(
+        id = "theatre",
+        nameRu = "Театр",
+        nameEn = "Theatre",
+        emoji = "🎭",
+        words = listOf(
+            Word("THEATRE", "театр"),
+            Word("STAGE", "сцена"),
+            Word("ACTOR", "актёр"),
+            Word("ROLE", "роль"),
+            Word("SCENE", "сцена"),
+            Word("COSTUME", "костюм"),
+            Word("MASK", "маска"),
+            Word("DRAMA", "драма"),
+            Word("COMEDY", "комедия"),
+            Word("TRAGEDY", "трагедия"),
+            Word("CURTAIN", "занавес"),
+            Word("TICKET", "билет"),
+            Word("AUDIENCE", "зрители"),
+            Word("SCRIPT", "сценарий"),
+            Word("LIGHT", "свет"),
+            Word("BOW", "поклон")
+        )
+    )
+
+    val cinema = Theme(
+        id = "cinema",
+        nameRu = "Кино",
+        nameEn = "Cinema",
+        emoji = "🎬",
+        words = listOf(
+            Word("MOVIE", "фильм"),
+            Word("FILM", "кино"),
+            Word("ACTOR", "актёр"),
+            Word("DIRECTOR", "режиссёр"),
+            Word("CAMERA", "камера"),
+            Word("SCENE", "сцена"),
+            Word("SCRIPT", "сценарий"),
+            Word("OSCAR", "Оскар"),
+            Word("POPCORN", "попкорн"),
+            Word("TICKET", "билет"),
+            Word("SCREEN", "экран"),
+            Word("TRAILER", "трейлер"),
+            Word("COMEDY", "комедия"),
+            Word("DRAMA", "драма"),
+            Word("HERO", "герой"),
+            Word("STAR", "звезда")
+        )
+    )
+
+    val football = Theme(
+        id = "football",
+        nameRu = "Футбол",
+        nameEn = "Football",
+        emoji = "⚽",
+        words = listOf(
+            Word("GOAL", "гол"),
+            Word("BALL", "мяч"),
+            Word("MATCH", "матч"),
+            Word("TEAM", "команда"),
+            Word("COACH", "тренер"),
+            Word("REFEREE", "судья"),
+            Word("STADIUM", "стадион"),
+            Word("TROPHY", "трофей"),
+            Word("SCORE", "счёт"),
+            Word("PENALTY", "пенальти"),
+            Word("OFFSIDE", "офсайд"),
+            Word("CORNER", "угловой"),
+            Word("KEEPER", "вратарь"),
+            Word("DRIBBLE", "дриблинг"),
+            Word("HEADER", "удар головой"),
+            Word("FAN", "болельщик")
+        )
+    )
+
+    val chess = Theme(
+        id = "chess",
+        nameRu = "Шахматы",
+        nameEn = "Chess",
+        emoji = "♟️",
+        words = listOf(
+            Word("CHESS", "шахматы"),
+            Word("BOARD", "доска"),
+            Word("PIECE", "фигура"),
+            Word("KING", "король"),
+            Word("QUEEN", "королева"),
+            Word("ROOK", "ладья"),
+            Word("BISHOP", "слон"),
+            Word("KNIGHT", "конь"),
+            Word("PAWN", "пешка"),
+            Word("MOVE", "ход"),
+            Word("CHECK", "шах"),
+            Word("MATE", "мат"),
+            Word("CASTLE", "рокировка"),
+            Word("ATTACK", "атака"),
+            Word("DEFENSE", "защита"),
+            Word("DRAW", "ничья")
+        )
+    )
+
+    val desert = Theme(
+        id = "desert",
+        nameRu = "Пустыня",
+        nameEn = "Desert",
+        emoji = "🏜️",
+        words = listOf(
+            Word("DESERT", "пустыня"),
+            Word("SAND", "песок"),
+            Word("DUNE", "дюна"),
+            Word("CACTUS", "кактус"),
+            Word("CAMEL", "верблюд"),
+            Word("OASIS", "оазис"),
+            Word("HEAT", "жара"),
+            Word("SUN", "солнце"),
+            Word("DRY", "сухо"),
+            Word("MIRAGE", "мираж"),
+            Word("SCORPION", "скорпион"),
+            Word("LIZARD", "ящерица"),
+            Word("SNAKE", "змея"),
+            Word("PALM", "пальма"),
+            Word("CARAVAN", "караван"),
+            Word("DUST", "пыль")
+        )
+    )
+
+    val mythical = Theme(
+        id = "mythical",
+        nameRu = "Мифические существа",
+        nameEn = "Mythical Creatures",
+        emoji = "🐉",
+        words = listOf(
+            Word("DRAGON", "дракон"),
+            Word("UNICORN", "единорог"),
+            Word("MERMAID", "русалка"),
+            Word("PHOENIX", "феникс"),
+            Word("GRIFFIN", "грифон"),
+            Word("CENTAUR", "кентавр"),
+            Word("MINOTAUR", "минотавр"),
+            Word("CYCLOPS", "циклоп"),
+            Word("TITAN", "титан"),
+            Word("NYMPH", "нимфа"),
+            Word("FAIRY", "фея"),
+            Word("GIANT", "великан"),
+            Word("TROLL", "тролль"),
+            Word("GOBLIN", "гоблин"),
+            Word("WEREWOLF", "оборотень"),
+            Word("PEGASUS", "пегас")
+        )
+    )
+
     /** Отдельный праздничный уровень, не входит в кампании. */
     val halloween = Theme(
         id = "halloween",
@@ -1477,6 +2227,10 @@ object Themes {
         drinks, bakery, furniture, bathroom, garden, farm, mountains, city, medicine, technology,
         brawlstars, myself, brawlers, brawlers2, brawlers3, localdarya,
         minecraft, pirates, dinosaurs, magic, heroes, dota, mcdonalds, tiktok, novosergievka,
-        alcohol, cities, darya, aerospace
+        alcohol, cities, darya, aerospace,
+        seasons, holidays, circus, zoo, egypt, rome, vikings, samurai, ninja, cowboys,
+        detectives, spies, firefighters, police, construction, supermarket, cafe, birthday,
+        wedding, christmas, planets, robots, internet, books, theatre, cinema, football, chess,
+        desert, mythical
     )
 }
