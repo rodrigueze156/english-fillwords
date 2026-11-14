@@ -21,8 +21,8 @@ android {
         applicationId = "com.timur.englishfillwords"
         minSdk = 24
         targetSdk = 35
-        versionCode = 16
-        versionName = "3.0"
+        versionCode = 17
+        versionName = "4.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
